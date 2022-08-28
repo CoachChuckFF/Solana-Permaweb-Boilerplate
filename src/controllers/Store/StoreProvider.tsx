@@ -44,6 +44,7 @@ export default function StoreProvider({ children }: any) {
 
     // Wallet Action
     const { publicKey, disconnect } = useWallet();
+    const connected = publicKey !== null;
 
     const store: Store = {
         isLoading: [isLoading, setIsLoading],
@@ -57,12 +58,12 @@ export default function StoreProvider({ children }: any) {
     };
 
     useEffect(() => {
-        if (publicKey) {
+        if (connected) {
             setPage(AppPage.home);
         } else if (page !== AppPage.login) {
             logoutOfStore(store, disconnect);
         }
-    }, [publicKey]);
+    }, [connected]);
 
     return (
         <StoreContext.Provider value={store}>{children}</StoreContext.Provider>

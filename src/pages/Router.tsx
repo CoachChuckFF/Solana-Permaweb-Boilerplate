@@ -11,7 +11,6 @@ const Router = () => {
     switch (page) {
         case "Home Page":
             return <HomePage />;
-
         default:
             return <LoginPage />;
     }
