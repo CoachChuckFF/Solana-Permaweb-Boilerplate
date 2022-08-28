@@ -5,12 +5,14 @@ import Router from "./pages/Router";
 
 function App() {
     return (
-        <SolanaWalletProvider>
-            <StoreProvider>
-                <Void />
-                <Router />
-            </StoreProvider>
-        </SolanaWalletProvider>
+        <>
+            <Void />
+            <SolanaWalletProvider>
+                <StoreProvider>
+                    <Router />
+                </StoreProvider>
+            </SolanaWalletProvider>
+        </>
     );
 }
 export default App;
